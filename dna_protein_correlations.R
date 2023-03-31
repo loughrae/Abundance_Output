@@ -196,25 +196,3 @@ dsg_dp_rel <- crg %>% ggplot(aes(x = complex, y = codp)) + geom_violin(aes(fill 
   crg %>% ggplot(aes(x = copyconserved, y = codp)) + geom_violin(aes(fill = copyconserved)) + geom_boxplot(alpha = 0.2) + stat_compare_means() + theme(legend.position = 'none') + xlab('') + ylab('DNA-Protein Correlation') | 
   crg %>% filter(CNV %in% c('Class P', 'Class B')) %>% ggplot(aes(x = CNV, y = codp)) + geom_violin(aes(fill = CNV)) + geom_boxplot(alpha = 0.2) + stat_compare_means() + theme(legend.position = 'none') + xlab('') + ylab('DNA-Protein Correlation')  
 
-for (gene1 in genes) {
-  for (gene2 in genes) {
-    loc1 <- x[Gene == gene1,]$start
-    loc2 <- x[Gene == gene2,]$start
-    chr1 <- x[Gene == gene1,]$chr
-    chr2 <- x[Gene == gene2,]$chr
-    if (chr1 != chr2) {
-      dis <- Inf
-    }
-    else {
-      dis <- abs(loc2 - loc1)
-    }
-    lo[[count]] <- data.frame(gene1, gene2, )
-    count = count + 1
-    if (count %% 100 == 0) {
-      print(count)
-    }
-  }
-}
-
-
-head(g)
